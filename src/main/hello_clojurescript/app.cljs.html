@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- Created by htmlize-1.55 in css mode. -->
+<html>
+  <head>
+    <title>app.cljs</title>
+    <style type="text/css">
+    <!--
+      body {
+        color: #DCDCCC;
+        background-color: #3F3F3F;
+      }
+      .clojure-keyword {
+        /* clojure-keyword-face */
+        color: #BFEBBF;
+      }
+      .comment {
+        /* font-lock-comment-face */
+        color: #7F9F7F;
+      }
+      .comment-delimiter {
+        /* font-lock-comment-delimiter-face */
+        color: #5F7F5F;
+      }
+      .constant {
+        /* font-lock-constant-face */
+        color: #BFEBBF;
+      }
+      .default {
+        /* default */
+        color: #DCDCCC;
+        background-color: #3F3F3F;
+      }
+      .function-name {
+        /* font-lock-function-name-face */
+        color: #93E0E3;
+      }
+      .keyword {
+        /* font-lock-keyword-face */
+        color: #F0DFAF;
+        font-weight: bold;
+      }
+      .rainbow-delimiters-depth-1 {
+        /* rainbow-delimiters-depth-1-face */
+        color: #DCDCCC;
+      }
+      .rainbow-delimiters-depth-2 {
+        /* rainbow-delimiters-depth-2-face */
+        color: #BFEBBF;
+      }
+      .rainbow-delimiters-depth-3 {
+        /* rainbow-delimiters-depth-3-face */
+        color: #D0BF8F;
+      }
+      .rainbow-delimiters-depth-4 {
+        /* rainbow-delimiters-depth-4-face */
+        color: #93E0E3;
+      }
+      .rainbow-delimiters-depth-5 {
+        /* rainbow-delimiters-depth-5-face */
+        color: #9FC59F;
+      }
+      .rainbow-delimiters-depth-6 {
+        /* rainbow-delimiters-depth-6-face */
+        color: #94BFF3;
+      }
+      .rainbow-delimiters-depth-7 {
+        /* rainbow-delimiters-depth-7-face */
+        color: #E0CF9F;
+      }
+      .rainbow-delimiters-depth-8 {
+        /* rainbow-delimiters-depth-8-face */
+        color: #8FB28F;
+      }
+      .string {
+        /* font-lock-string-face */
+        color: #CC9393;
+      }
+      .type {
+        /* font-lock-type-face */
+        color: #7CB8BB;
+      }
+      .variable-name {
+        /* font-lock-variable-name-face */
+        color: #DFAF8F;
+      }
+
+      a {
+        color: inherit;
+        background-color: inherit;
+        font: inherit;
+        text-decoration: inherit;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    -->
+    </style>
+  </head>
+  <body>
+    <pre>
+<span class="rainbow-delimiters-depth-1">(</span><span class="keyword">ns</span> <span class="type">hello-clojurescript.app</span>
+  <span class="rainbow-delimiters-depth-2">(</span><span class="clojure-keyword">:require</span> <span class="rainbow-delimiters-depth-3">[</span>reagent.core <span class="clojure-keyword">:as</span> r<span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/global"</span> <span class="clojure-keyword">:as</span> vs-global<span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/components/Button"</span> <span class="clojure-keyword">:refer</span> <span class="rainbow-delimiters-depth-4">[</span>Button<span class="rainbow-delimiters-depth-4">]</span><span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/components/SideNav"</span> <span class="clojure-keyword">:refer</span> <span class="rainbow-delimiters-depth-4">[</span>SideNav<span class="rainbow-delimiters-depth-4">]</span><span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/layouts/ApplicationLayout"</span> <span class="clojure-keyword">:default</span> Layout<span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/components/PageHeader"</span> <span class="clojure-keyword">:refer</span> <span class="rainbow-delimiters-depth-4">[</span>PageHeader, PageHeaderSection, PageTitle<span class="rainbow-delimiters-depth-4">]</span><span class="rainbow-delimiters-depth-3">]</span><span class="comment">;
+</span>            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/components/PageContent"</span> <span class="clojure-keyword">:default</span> PageContent<span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/components/Form"</span> <span class="clojure-keyword">:refer</span> <span class="rainbow-delimiters-depth-4">[</span>Input<span class="rainbow-delimiters-depth-4">]</span><span class="rainbow-delimiters-depth-3">]</span>
+            <span class="rainbow-delimiters-depth-3">[</span><span class="string">"@cjdev/visual-stack/lib/components/Panel"</span> <span class="clojure-keyword">:refer</span> <span class="rainbow-delimiters-depth-4">[</span>Panel<span class="rainbow-delimiters-depth-4">]</span> <span class="clojure-keyword">:rename</span> <span class="rainbow-delimiters-depth-4">{</span>Header PanelHeader
+                                                                                Body PanelBody
+                                                                                Footer PanelFooter<span class="rainbow-delimiters-depth-4">}</span><span class="rainbow-delimiters-depth-3">]</span><span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="comment-delimiter">;; </span><span class="comment">App state: equivalent to redux store
+</span><span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defonce</span> <span class="variable-name">app-state</span>
+  <span class="rainbow-delimiters-depth-2">(</span><span class="type">r</span>/atom <span class="rainbow-delimiters-depth-3">{</span><span class="clojure-keyword">:count</span> <span class="rainbow-delimiters-depth-4">{}</span>
+           <span class="clojure-keyword">:sideNavState</span> <span class="constant">true</span><span class="rainbow-delimiters-depth-3">}</span><span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="comment-delimiter">;; </span><span class="comment">State mutations: roughly equivalent to redux actions
+</span><span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">toggle-side-nav</span> <span class="rainbow-delimiters-depth-2">[</span>app-state<span class="rainbow-delimiters-depth-2">]</span>
+  <span class="rainbow-delimiters-depth-2">(</span>update-in app-state <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:sideNavState</span><span class="rainbow-delimiters-depth-3">]</span> not<span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">increment</span> <span class="rainbow-delimiters-depth-2">[</span>app-state id event<span class="rainbow-delimiters-depth-2">]</span>
+  <span class="rainbow-delimiters-depth-2">(</span>.preventDefault event<span class="rainbow-delimiters-depth-2">)</span>
+  <span class="rainbow-delimiters-depth-2">(</span>update-in app-state <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:count</span> id<span class="rainbow-delimiters-depth-3">]</span> inc<span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">decrement</span> <span class="rainbow-delimiters-depth-2">[</span>app-state id event<span class="rainbow-delimiters-depth-2">]</span>
+  <span class="rainbow-delimiters-depth-2">(</span>.preventDefault event<span class="rainbow-delimiters-depth-2">)</span>
+  <span class="rainbow-delimiters-depth-2">(</span>update-in app-state <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:count</span> id<span class="rainbow-delimiters-depth-3">]</span> dec<span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">reset-count</span> <span class="rainbow-delimiters-depth-2">[</span>app-state id event<span class="rainbow-delimiters-depth-2">]</span>
+  <span class="rainbow-delimiters-depth-2">(</span>.preventDefault event<span class="rainbow-delimiters-depth-2">)</span>
+  <span class="rainbow-delimiters-depth-2">(</span>assoc-in app-state <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:count</span> id<span class="rainbow-delimiters-depth-3">]</span> 0<span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">update-app-state!</span> <span class="rainbow-delimiters-depth-2">[</span>action &amp; args<span class="rainbow-delimiters-depth-2">]</span>
+  <span class="rainbow-delimiters-depth-2">(</span>apply swap! app-state action args<span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="comment-delimiter">;; </span><span class="comment">Custom components are just functions that return "Hiccu" syntax datastructures
+</span><span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">counter</span> <span class="rainbow-delimiters-depth-2">[</span><span class="rainbow-delimiters-depth-3">{</span>id <span class="clojure-keyword">:id</span><span class="rainbow-delimiters-depth-3">}</span><span class="rainbow-delimiters-depth-2">]</span>
+  <span class="rainbow-delimiters-depth-2">[</span><span class="clojure-keyword">:div</span>
+   <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:&gt;</span> Button <span class="rainbow-delimiters-depth-4">{</span><span class="clojure-keyword">:type</span> <span class="string">"solid-primary"</span>
+               <span class="clojure-keyword">:on-click</span> #<span class="rainbow-delimiters-depth-5">(</span>update-app-state! decrement id <span class="variable-name">%</span><span class="rainbow-delimiters-depth-5">)</span><span class="rainbow-delimiters-depth-4">}</span>
+    <span class="string">"-"</span><span class="rainbow-delimiters-depth-3">]</span>
+   <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:&gt;</span> Button <span class="rainbow-delimiters-depth-4">{</span><span class="clojure-keyword">:type</span> <span class="string">"solid-secondary"</span>
+               <span class="clojure-keyword">:on-click</span> #<span class="rainbow-delimiters-depth-5">(</span>update-app-state! reset-count id <span class="variable-name">%</span><span class="rainbow-delimiters-depth-5">)</span><span class="rainbow-delimiters-depth-4">}</span>
+    <span class="rainbow-delimiters-depth-4">(</span>get-in @app-state <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:count</span> id<span class="rainbow-delimiters-depth-5">]</span> 0<span class="rainbow-delimiters-depth-4">)</span><span class="rainbow-delimiters-depth-3">]</span>
+   <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:&gt;</span> Button <span class="rainbow-delimiters-depth-4">{</span><span class="clojure-keyword">:type</span> <span class="string">"solid-primary"</span>
+               <span class="clojure-keyword">:on-click</span> #<span class="rainbow-delimiters-depth-5">(</span>update-app-state! increment id <span class="variable-name">%</span><span class="rainbow-delimiters-depth-5">)</span><span class="rainbow-delimiters-depth-4">}</span>
+    <span class="string">"+"</span><span class="rainbow-delimiters-depth-3">]</span><span class="rainbow-delimiters-depth-2">]</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="comment-delimiter">;; </span><span class="comment">The toplevel component
+</span><span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">app</span> <span class="rainbow-delimiters-depth-2">[]</span>
+  <span class="rainbow-delimiters-depth-2">[</span><span class="clojure-keyword">:&gt;</span> Layout <span class="rainbow-delimiters-depth-3">{</span><span class="clojure-keyword">:sideNav</span> <span class="rainbow-delimiters-depth-4">(</span><span class="type">r</span>/as-component
+                        <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> SideNav
+                         <span class="rainbow-delimiters-depth-6">{</span><span class="clojure-keyword">:onClick</span> #<span class="rainbow-delimiters-depth-7">(</span>update-app-state! toggle-side-nav<span class="rainbow-delimiters-depth-7">)</span>
+                          <span class="clojure-keyword">:collapsed</span> <span class="rainbow-delimiters-depth-7">(</span>not <span class="rainbow-delimiters-depth-8">(</span>get @app-state <span class="clojure-keyword">:sideNavState</span><span class="rainbow-delimiters-depth-8">)</span><span class="rainbow-delimiters-depth-7">)</span><span class="rainbow-delimiters-depth-6">}</span><span class="rainbow-delimiters-depth-5">]</span><span class="rainbow-delimiters-depth-4">)</span>
+              <span class="clojure-keyword">:sideNavState</span> <span class="rainbow-delimiters-depth-4">(</span>get @app-state <span class="clojure-keyword">:sideNavState</span><span class="rainbow-delimiters-depth-4">)</span><span class="rainbow-delimiters-depth-3">}</span>
+   <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:&gt;</span> PageHeader
+    <span class="rainbow-delimiters-depth-4">[</span><span class="clojure-keyword">:&gt;</span> PageTitle <span class="string">"This is the title"</span><span class="rainbow-delimiters-depth-4">]</span><span class="rainbow-delimiters-depth-3">]</span>
+   <span class="rainbow-delimiters-depth-3">[</span><span class="clojure-keyword">:&gt;</span> PageContent
+    <span class="rainbow-delimiters-depth-4">[</span><span class="clojure-keyword">:&gt;</span> Panel
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelHeader <span class="string">"First Counter"</span><span class="rainbow-delimiters-depth-5">]</span>
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelBody <span class="rainbow-delimiters-depth-6">[</span>counter <span class="rainbow-delimiters-depth-7">{</span><span class="clojure-keyword">:id</span> 1<span class="rainbow-delimiters-depth-7">}</span><span class="rainbow-delimiters-depth-6">]</span><span class="rainbow-delimiters-depth-5">]</span><span class="rainbow-delimiters-depth-4">]</span>
+    <span class="rainbow-delimiters-depth-4">[</span><span class="clojure-keyword">:&gt;</span> Panel
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelHeader <span class="string">"Second Counter"</span><span class="rainbow-delimiters-depth-5">]</span>
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelBody <span class="rainbow-delimiters-depth-6">[</span>counter <span class="rainbow-delimiters-depth-7">{</span><span class="clojure-keyword">:id</span> 5<span class="rainbow-delimiters-depth-7">}</span><span class="rainbow-delimiters-depth-6">]</span><span class="rainbow-delimiters-depth-5">]</span><span class="rainbow-delimiters-depth-4">]</span>
+    <span class="rainbow-delimiters-depth-4">[</span><span class="clojure-keyword">:&gt;</span> Panel
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelHeader <span class="string">"Third Counter"</span><span class="rainbow-delimiters-depth-5">]</span>
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelBody <span class="rainbow-delimiters-depth-6">[</span>counter <span class="rainbow-delimiters-depth-7">{</span><span class="clojure-keyword">:id</span> 2<span class="rainbow-delimiters-depth-7">}</span><span class="rainbow-delimiters-depth-6">]</span><span class="rainbow-delimiters-depth-5">]</span>
+     <span class="rainbow-delimiters-depth-5">[</span><span class="clojure-keyword">:&gt;</span> PanelFooter <span class="string">"and that's all!"</span><span class="rainbow-delimiters-depth-5">]</span><span class="rainbow-delimiters-depth-4">]</span><span class="rainbow-delimiters-depth-3">]</span><span class="rainbow-delimiters-depth-2">]</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="comment-delimiter">;; </span><span class="comment">Dev tooling integration + entrypoint
+</span><span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> ^<span class="clojure-keyword">:</span><span class="type">dev</span><span class="default">/</span><span class="clojure-keyword">after-load</span> <span class="function-name">start</span> <span class="rainbow-delimiters-depth-2">[]</span>
+  <span class="rainbow-delimiters-depth-2">(</span><span class="type">r</span>/render-component <span class="rainbow-delimiters-depth-3">[</span>app<span class="rainbow-delimiters-depth-3">]</span>
+                      <span class="rainbow-delimiters-depth-3">(</span>.getElementById <span class="type">js</span>/document <span class="string">"root"</span><span class="rainbow-delimiters-depth-3">)</span><span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+
+<span class="rainbow-delimiters-depth-1">(</span><span class="keyword">defn</span> <span class="function-name">init</span> <span class="rainbow-delimiters-depth-2">[]</span>
+  <span class="rainbow-delimiters-depth-2">(</span>start<span class="rainbow-delimiters-depth-2">)</span><span class="rainbow-delimiters-depth-1">)</span>
+</pre>
+  </body>
+</html>
